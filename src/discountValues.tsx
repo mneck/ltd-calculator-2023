@@ -204,4 +204,4 @@ const discountValues = [
   },
 ];
 
-// export default discountValues;
+export default discountValues;
