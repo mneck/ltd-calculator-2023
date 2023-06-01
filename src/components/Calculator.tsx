@@ -53,27 +53,33 @@ function Calculator() {
     );
 
     // Calculate the difference in months between policyEndDate and currentDate
-    const monthsFromPolicyEnd: number = differenceInMonths(
+    const monthsToPolicyEnd: number = differenceInMonths(
       policyEndDateObject,
       currentDateObject
     );
 
-    const pastBenefit = monthsFromDenial * monthlyBenefit;
-    const futureBenefit = monthsFromPolicyEnd * monthlyBenefit;
+    const yearsToPolicyEnd: number = Math.floor(monthsToPolicyEnd / 12);
+
+    const pastBenefit: number = monthsFromDenial * monthlyBenefit;
+    const futureBenefit: number =
+      12 * monthlyBenefit * discountValues[yearsToPolicyEnd - 1].discountValue;
 
     // let pastBenefit = currentDate - ; // difference between date of denial and current date
     // const futureBenefit = 0;
-    setTotal(pastBenefit + futureBenefit);
+    setTotal(Number((pastBenefit + futureBenefit).toFixed(2)));
     console.log(
       "total:",
       total,
       "past benefit:",
       pastBenefit,
-      "future benefit: ",
-      futureBenefit
+      "months from policy end: ",
+      monthsToPolicyEnd,
+      "years to policy end: ",
+      yearsToPolicyEnd,
+      "discount value for future benefit: ",
+      discountValues[yearsToPolicyEnd - 1].discountValue
     );
     console.log(total);
-    // const result =
   };
 
   return (
