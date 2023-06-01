@@ -1,6 +1,7 @@
 // https://www.canlii.org/en/bc/laws/regu/bc-reg-352-81/latest/bc-reg-352-81.html?autocompleteStr=352%2F81&autocompletePos=1
 
-const discountValues = [
+const discountValues: { year: number; discountValue: number }[] = [
+  // confirm that year is positive whole number & discountValue is positive integer
   {
     year: 1,
     discountValue: 0.9852,
