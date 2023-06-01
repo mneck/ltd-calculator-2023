@@ -20,11 +20,6 @@ function Calculator() {
   let currentDateObject;
   let policyEndDateObject;
 
-  // Monthly benefit amount: $1000
-  // Date of denial: January 1, 2023
-  // Current date: July 1, 2023
-  // Policy end date: January 1, 2043
-
   const handleMonthlyBenefitChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -32,7 +27,7 @@ function Calculator() {
   };
 
   const handleDenialDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDenialDate(e.target.value); //to fix
+    setDenialDate(e.target.value);
   };
   const handleCurrentDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentDate(e.target.value);
@@ -44,7 +39,7 @@ function Calculator() {
     setPolicyEndDate(e.target.value);
   };
 
-  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     denialDateObject = parseISO(denialDate);
     currentDateObject = parseISO(currentDate);
